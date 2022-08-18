@@ -44,7 +44,7 @@ vpcaccess.googleapis.com
 
 6. Clone this repo into the Cloud Shell VM
 ```
-git clone https://github.com/sylvioneto/terraform_gcp.git
+git clone https://github.com/sylvioneto/gcp-cloud-foundation
 ```
 
 7. Execute Terraform using Cloud Build

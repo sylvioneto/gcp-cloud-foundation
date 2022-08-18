@@ -40,7 +40,13 @@ sqladmin.googleapis.com \
 vpcaccess.googleapis.com
 ```
 
-5. Go to [IAM](https://console.cloud.google.com/iam-admin/iam) and add `Editor`, `Compute Networking Admin`, and `Security Admin` role to the Cloud Build's service account `<PROJECT_NUMBER>@cloudbuild.gserviceaccount.com`.
+5. Give permissions to Cloud Build for creating the resources
+```
+PROJECT_NUMBER=$(gcloud projects describe $GOOGLE_CLOUD_PROJECT --format='value(projectNumber)')
+gcloud projects add-iam-policy-binding $GOOGLE_CLOUD_PROJECT --member=serviceAccount:$PROJECT_NUMBER@cloudbuild.gserviceaccount.com --role=roles/editor
+gcloud projects add-iam-policy-binding $GOOGLE_CLOUD_PROJECT --member=serviceAccount:$PROJECT_NUMBER@cloudbuild.gserviceaccount.com --role=roles/compute.networkAdmin
+gcloud projects add-iam-policy-binding $GOOGLE_CLOUD_PROJECT --member=serviceAccount:$PROJECT_NUMBER@cloudbuild.gserviceaccount.com --role=roles/iam.securityAdmin
+```
 
 6. Clone this repo into the Cloud Shell VM
 ```

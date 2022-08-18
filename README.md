@@ -51,6 +51,7 @@ gcloud projects add-iam-policy-binding $GOOGLE_CLOUD_PROJECT --member=serviceAcc
 6. Clone this repo into the Cloud Shell VM
 ```
 git clone https://github.com/sylvioneto/gcp-cloud-foundation
+cd gcp-cloud-foundation
 ```
 
 7. Execute Terraform using Cloud Build
